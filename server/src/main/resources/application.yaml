@@ -1,0 +1,88 @@
+spring:
+  application:
+    name: oauth
+
+  # Redis 配置（Redisson）
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: #
+      database: 0
+      timeout: 1000
+
+  # 数据库初始化
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+
+  # Jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+
+  mvc:
+    apiversion:
+      use:
+        header: Api-Version
+      default: 1
+
+# MyBatis-Flex配置
+mybatis-flex:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    key-type: snowflake
+    logic-delete-column: deleted
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+
+# 服务配置
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# 日志配置
+logging:
+  level:
+    org.codelin.oauth: DEBUG
+    com.mybatisflex: DEBUG
+
+# 应用配置
+app:
+  server-url: "https://auth.tecgui.cn"
+
+  token-store:
+    type: redis
+
+  rate-limit:
+    store-type: redis
+
+  storage:
+    type: local
+    local:
+      base-path: ./uploads
+      base-url: /files
+
+  cluster:
+    enabled: false
+    node-id: ${HOSTNAME:node1}
+    master-key: cluster:master
+    lease-seconds: 30
+
+  jwt:
+    secret: "oauth-center-production-secret-key-2026"
+
+# 缓存类型: memory / redis
+oauth:
+  token:
+    store-type: redis
+  cache:
+    type: memory

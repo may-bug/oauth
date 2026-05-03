@@ -1,0 +1,63 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": ".*\\.properties$"
+      },
+      {
+        "pattern": ".*\\.xml$"
+      },
+      {
+        "pattern": ".*\\.yaml$"
+      },
+      {
+        "pattern": ".*\\.yml$"
+      },
+      {
+        "pattern": ".*\\.json$"
+      },
+      {
+        "pattern": ".*\\.sql$"
+      },
+      {
+        "pattern": ".*\\.html$"
+      },
+      {
+        "pattern": ".*\\.css$"
+      },
+      {
+        "pattern": ".*\\.js$"
+      },
+      {
+        "pattern": ".*\\.png$"
+      },
+      {
+        "pattern": ".*\\.jpg$"
+      },
+      {
+        "pattern": ".*\\.gif$"
+      },
+      {
+        "pattern": ".*\\.ico$"
+      },
+      {
+        "pattern": "messages.*"
+      },
+      {
+        "pattern": "META-INF/.*"
+      },
+      {
+        "pattern": "org/springframework/.*"
+      },
+      {
+        "pattern": "com/mybatisflex/.*"
+      }
+    ]
+  },
+  "bundles": [
+    {
+      "name": "messages",
+      "locales": ["", "zh_CN", "en"]
+    }
+  ]
+}
