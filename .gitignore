@@ -1,9 +1,9 @@
 HELP.md
-target/
-openspec/
-dist/
-.agents/
-.claude/
+**/target/
+**/openspec/
+**/dist/
+**/.agents/
+**/.claude/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -36,3 +36,4 @@ build/
 ### VS Code ###
 .vscode/
 /.mvn/
+/server/.claude/
