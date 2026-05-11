@@ -91,6 +91,11 @@ export default defineNuxtConfig({
         build:{
             sourcemap:'hidden'
         },
+        terserOptions: {
+            compress: {
+                drop_console: true,
+            },
+        },
         server: {
             allowedHosts: true,
             proxy: {
@@ -104,5 +109,13 @@ export default defineNuxtConfig({
         optimizeDeps: {
             include: ['@vueuse/core', 'axios'],
         },
-    }
+    },
+    nitro: {
+        externals: {
+            inline: ['vue'],
+        },
+    },
+    build: {
+        transpile: ['@vueuse/core', 'axios'],
+    },
 })
